@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyond Measurable Success | Dissertation Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold:#C79A3B;
+    --teal:#18B7B3;
+    --paper:#F5EFE5;
+    --ink:#172033;
+    --body:rgba(23,32,51,0.62);
+    --navy1:#0B1426;
+    --navy2:#13203B;
+    --navy3:#1A2C4E;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    background:#0E1422;
+    font-family:'Inter',sans-serif;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    padding:24px 16px;
+    color:var(--ink);
+  }
+  /* ---------- STAGE & SCALING ---------- */
+  .stage-wrap{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    flex:1;
+  }
+  .stage{
+    position:relative;
+    width:1080px;
+    height:1350px;
+    transform-origin:top center;
+    flex:none;
+  }
+  .slide{
+    position:absolute;
+    inset:0;
+    width:1080px;
+    height:1350px;
+    background:var(--paper);
+    overflow:hidden;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .45s ease;
+    box-shadow:0 30px 80px rgba(0,0,0,.45);
+  }
+  .slide.active{opacity:1;visibility:visible;}
+
+  /* ---------- INTERIOR SLIDE SCAFFOLD ---------- */
+  .interior{padding:90px 96px 80px 110px;display:flex;flex-direction:column;}
+  .interior::before{
+    content:"";
+    position:absolute;
+    left:0;top:0;bottom:0;
+    width:7px;
+    background:linear-gradient(180deg,#E3C26E 0%,var(--gold) 45%,#9C7424 100%);
+  }
+  .interior.teal-bar::before{
+    background:linear-gradient(180deg,#5BD8D4 0%,var(--teal) 45%,#0E827F 100%);
+  }
+  .author-line{
+    font-size:17px;font-weight:700;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--teal);
+  }
+  .kicker{
+    margin-top:14px;
+    font-size:15px;font-weight:600;letter-spacing:.32em;
+    text-transform:uppercase;color:rgba(23,32,51,.45);
+  }
+  .slide-body{flex:1;display:flex;flex-direction:column;}
+  .segue{
+    margin-top:auto;padding-top:20px;
+    font-family:'Libre Baskerville',serif;font-style:italic;
+    font-size:18px;color:var(--gold);
+    display:flex;align-items:center;gap:12px;
+  }
+  .segue::after{content:"\2192";font-style:normal;font-size:18px;color:var(--gold);}
+  .segue + .footer{margin-top:18px;}
+  .footer{
+    margin-top:auto;
+    padding-top:22px;
+    border-top:1px solid rgba(23,32,51,.18);
+    display:flex;justify-content:space-between;align-items:baseline;
+    font-size:15px;letter-spacing:.14em;text-transform:uppercase;
+    color:rgba(23,32,51,.45);font-weight:600;
+  }
+  .footer .num{font-weight:700;color:rgba(23,32,51,.6);}
+
+  h2.display{
+    font-size:72px;line-height:1.06;font-weight:800;
+    letter-spacing:-0.015em;color:var(--ink);
+  }
+  h2.display.smaller{font-size:62px;}
+  .rule{height:3px;width:120px;border:none;margin:34px 0 40px;}
+  .rule.gold{background:var(--gold);}
+  .rule.teal{background:var(--teal);}
+  p.body{
+    font-size:24px;line-height:1.62;color:var(--body);
+    max-width:840px;
+  }
+  p.body + p.body{margin-top:26px;}
+  p.body strong{color:var(--ink);font-weight:700;}
+  .serif{font-family:'Libre Baskerville',serif;}
+
+  .pullquote{
+    margin:42px 0;
+    padding:8px 0 8px 34px;
+    font-family:'Libre Baskerville',serif;
+    font-style:italic;
+    font-size:28px;line-height:1.6;color:var(--ink);
+  }
+  .pullquote.gold{border-left:4px solid var(--gold);}
+  .pullquote.teal{border-left:4px solid var(--teal);}
+
+  .metrics{display:flex;gap:54px;margin-top:auto;padding-top:30px;}
+  .metric{padding-left:22px;border-left:3px solid var(--teal);}
+  .metric .n{font-size:58px;font-weight:800;color:var(--ink);line-height:1;}
+  .metric .l{margin-top:10px;font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:var(--body);font-weight:600;}
+
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:46px;margin-top:8px;}
+  .col-label{
+    font-size:15px;font-weight:700;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:18px;
+  }
+  .twocol p{font-size:23px;line-height:1.6;color:var(--body);}
+  .twocol .col.boxed{border:1px solid rgba(23,32,51,.18);padding:34px 32px;}
+
+  .purpose-block{
+    margin-top:54px;
+    padding:44px 8px;
+    border-top:3px solid var(--gold);
+    border-bottom:3px solid var(--gold);
+  }
+  .purpose-block .pb-label{
+    font-size:15px;font-weight:700;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:22px;
+  }
+  .purpose-block .pb-text{
+    font-family:'Libre Baskerville',serif;
+    font-size:30px;line-height:1.62;color:var(--ink);
+  }
+
+  .method-block{padding-top:28px;margin-top:6px;}
+  .method-block.gold-top{border-top:3px solid var(--gold);}
+  .method-block.teal-top{border-top:3px solid var(--teal);}
+  .method-name{font-size:44px;font-weight:800;color:var(--ink);letter-spacing:-0.01em;}
+  .method-cite{
+    margin-top:10px;font-size:15px;font-weight:600;letter-spacing:.22em;
+    text-transform:uppercase;color:rgba(23,32,51,.45);
+  }
+  .method-desc{margin-top:22px;font-size:22.5px;line-height:1.6;color:var(--body);max-width:860px;}
+
+  .plain-terms{
+    margin-top:36px;
+    font-family:'Libre Baskerville',serif;
+    font-style:italic;
+    font-size:25px;line-height:1.62;color:var(--gold);
+    max-width:850px;
+  }
+
+  /* Hermeneutic circle (slide 5) */
+  .circle-wrap{display:flex;justify-content:center;margin:26px 0 8px;}
+  .circle-caption{
+    text-align:center;
+    font-size:19px;line-height:1.5;color:var(--body);
+    max-width:720px;margin:6px auto 0;
+  }
+  .hc-label{font-family:'Inter',sans-serif;font-size:19px;font-weight:600;fill:#172033;}
+  .hc-num{font-family:'Inter',sans-serif;font-size:15px;font-weight:800;fill:#C79A3B;letter-spacing:.08em;}
+  .hc-center-1{font-family:'Inter',sans-serif;font-size:20px;font-weight:800;fill:#172033;letter-spacing:.06em;text-transform:uppercase;}
+  .hc-center-2{font-family:'Libre Baskerville',serif;font-size:16px;font-style:italic;fill:rgba(23,32,51,.62);}
+  .d-label{font-family:'Inter',sans-serif;font-size:19px;font-weight:600;fill:#172033;}
+  .d-sub{font-family:'Inter',sans-serif;font-size:15px;font-weight:600;fill:rgba(23,32,51,.55);letter-spacing:.06em;text-transform:uppercase;}
+  .d-strong{font-family:'Inter',sans-serif;font-size:21px;font-weight:800;fill:#172033;}
+  .quote-setup{margin-top:30px;font-size:19px;line-height:1.55;color:rgba(23,32,51,.62);max-width:840px;}
+
+  /* Theme list (slide 7) */
+  .theme-row{
+    display:flex;align-items:flex-start;gap:36px;
+    padding:26px 0;
+    border-bottom:1px solid rgba(23,32,51,.14);
+  }
+  .theme-row:last-child{border-bottom:none;}
+  .theme-num{
+    font-size:74px;font-weight:900;line-height:.9;
+    color:rgba(199,154,59,.28);
+    width:110px;flex:none;
+  }
+  .theme-text h3{font-size:27px;font-weight:700;color:var(--ink);}
+  .theme-text p{margin-top:8px;font-size:20.5px;line-height:1.5;color:var(--body);}
+  .badge{
+    display:inline-block;
+    font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:#fff;background:var(--teal);
+    padding:6px 12px;border-radius:2px;
+  }
+  .badge-line{margin-top:10px;}
+  .badge.above{margin-bottom:18px;}
+
+  .theme-frame{
+    font-family:'Libre Baskerville',serif;font-style:italic;
+    font-size:22px;line-height:1.5;color:var(--gold);
+    margin:0 0 22px;max-width:840px;
+  }
+  .quoteblock{
+    margin:36px 0 32px;
+    font-family:'Libre Baskerville',serif;
+    font-style:italic;
+    font-size:29px;line-height:1.62;color:var(--ink);
+    max-width:850px;
+  }
+  .attrib{
+    margin-top:18px;
+    font-family:'Inter',sans-serif;font-style:normal;
+    font-size:16px;font-weight:700;letter-spacing:.24em;
+    text-transform:uppercase;color:rgba(23,32,51,.5);
+    font-variant:small-caps;
+  }
+  .essence{
+    padding:6px 0 6px 30px;
+    font-size:23.5px;line-height:1.6;color:var(--ink);font-weight:500;
+  }
+  .essence.teal{border-left:4px solid var(--teal);}
+  .essence.gold{border-left:4px solid var(--gold);}
+
+  /* QR strip */
+  .qr-strip{
+    margin-top:auto;
+    display:flex;align-items:center;gap:30px;
+    padding-top:34px;
+  }
+  .qr-box{
+    width:128px;height:128px;flex:none;
+    border:2px dashed var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    font-size:12px;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--gold);text-align:center;
+  }
+  .qr-box.teal{border-color:var(--teal);color:var(--teal);}
+  .qr-text .qr-h{font-size:17px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);}
+  .qr-text p{margin-top:8px;font-size:19px;line-height:1.5;color:var(--body);max-width:560px;}
+
+  /* Limitations (slide 11) */
+  .limit{
+    padding:4px 0 4px 28px;border-left:3px solid var(--teal);
+    margin-top:34px;
+  }
+  .limit h4{font-size:24px;font-weight:700;color:var(--ink);}
+  .limit p{margin-top:8px;font-size:21px;line-height:1.55;color:var(--body);}
+  .closing-italic{
+    margin-top:44px;
+    font-family:'Libre Baskerville',serif;font-style:italic;
+    font-size:25px;line-height:1.6;color:var(--ink);
+  }
+
+  .imp-band{
+    margin-top:30px;margin-bottom:4px;
+    font-size:16px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--teal);padding-bottom:14px;border-bottom:2px solid rgba(24,183,179,.3);
+  }
+  /* Implications grid (slide 12) */
+  .imp-grid{display:grid;grid-template-columns:1fr 1fr;gap:38px 50px;margin-top:36px;}
+  .imp{border-top:3px solid var(--gold);padding-top:20px;}
+  .imp h4{font-size:23px;font-weight:700;color:var(--ink);}
+  .imp p{margin-top:10px;font-size:19px;line-height:1.55;color:var(--body);}
+  .imp-close{
+    margin-top:42px;
+    padding:6px 0 6px 30px;border-left:4px solid var(--teal);
+    font-size:20px;line-height:1.6;color:var(--body);
+  }
+  .imp-close strong{color:var(--ink);}
+
+  .syn-epigraph{
+    margin-top:22px;text-align:right;
+    font-family:'Libre Baskerville',serif;font-style:italic;
+    font-size:18px;line-height:1.45;color:rgba(23,32,51,.5);
+  }
+  /* ---------- LIMITATIONS LIST (slide 12) ---------- */
+  .lim-list{margin-top:26px;}
+  .lim-item{padding:18px 0;border-bottom:1px solid rgba(23,32,51,.14);}
+  .lim-item:last-child{border-bottom:none;}
+  .lim-item.key{border-left:3px solid var(--teal);padding-left:24px;}
+  .lim-top{display:flex;align-items:center;gap:16px;margin-bottom:7px;}
+  .lim-top h4{font-size:23px;font-weight:700;color:var(--ink);}
+  .lim-item p{font-size:19px;line-height:1.5;color:var(--body);max-width:900px;}
+  .lim-item.key p{max-width:880px;}
+
+  /* ---------- SYNTHESIS (slide 11) ---------- */
+  .syn-intro{font-size:20px;line-height:1.55;color:var(--body);max-width:900px;margin-top:6px;}
+  .syn-table{margin-top:22px;}
+  .syn-head{
+    display:grid;grid-template-columns:1fr 1fr;gap:48px;
+    padding-bottom:10px;border-bottom:2px solid rgba(23,32,51,.25);
+  }
+  .syn-head .sh{font-size:15px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;}
+  .syn-head .sh.left{color:rgba(23,32,51,.5);}
+  .syn-head .sh.right{color:var(--teal);}
+  .syn-row{
+    display:grid;grid-template-columns:1fr 1fr;gap:48px;
+    padding:18px 0;border-bottom:1px solid rgba(23,32,51,.14);
+  }
+  .syn-row .name{font-size:16px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+  .syn-cell{font-size:20px;line-height:1.45;}
+  .syn-cell.left{color:rgba(23,32,51,.55);}
+  .syn-cell.right{color:var(--ink);font-weight:500;}
+  .syn-land{
+    margin-top:26px;padding:4px 0 4px 30px;border-left:4px solid var(--gold);
+  }
+  .syn-land .l1{font-family:'Libre Baskerville',serif;font-size:23px;line-height:1.5;color:var(--ink);}
+  .syn-land .l2{margin-top:12px;font-size:19px;line-height:1.5;color:var(--body);}
+  .syn-land .l2 strong{color:var(--ink);}
+
+
+  /* ---------- INLINE AUDIO PLAYERS (web brief) ---------- */
+  .audio-player{ margin-top:auto;padding-top:30px; }
+  .audio-player .ap-label{
+    font-size:17px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--teal);margin-bottom:6px;
+  }
+  .audio-player .ap-sub{
+    font-size:18px;line-height:1.5;color:var(--body);margin-bottom:18px;max-width:620px;
+  }
+  .audio-player audio{ width:100%;max-width:640px;height:44px;display:block; }
+  .audio-player audio::-webkit-media-controls-panel{ background:#EFE7D7; }
+  .audio-final{
+    border:1px solid rgba(24,183,179,.4);padding:28px 30px;
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .audio-final .ap-label{margin-bottom:8px;}
+  .audio-final audio{max-width:100%;}
+
+  /* ---------- COVER ---------- */
+  .cover{
+    background:linear-gradient(152deg,var(--navy1) 0%,var(--navy2) 48%,var(--navy3) 100%);
+    color:#fff;
+    padding:110px 96px 90px 110px;
+    display:flex;flex-direction:column;
+  }
+  .cover::before{
+    content:"";
+    position:absolute;left:0;top:0;bottom:0;width:7px;
+    background:linear-gradient(180deg,#E3C26E,var(--gold) 50%,#9C7424);
+  }
+  .cover-mark{
+    position:absolute;top:84px;right:84px;
+    width:170px;height:170px;border-radius:50%;
+    border:2px solid rgba(199,154,59,.55);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .cover-mark::before{
+    content:"";width:118px;height:118px;border-radius:50%;
+    border:1px solid rgba(24,183,179,.5);
+    position:absolute;
+  }
+  .cover-mark span{
+    font-size:30px;font-weight:800;letter-spacing:.08em;color:var(--gold);
+  }
+  .cover-kicker{
+    font-size:16px;font-weight:700;letter-spacing:.34em;
+    text-transform:uppercase;color:var(--teal);
+  }
+  .cover h1{
+    margin-top:48px;
+    font-size:104px;font-weight:900;line-height:1.02;
+    letter-spacing:-0.02em;color:#fff;max-width:820px;
+  }
+  .cover .subtitle{
+    margin-top:42px;
+    font-family:'Libre Baskerville',serif;font-style:italic;
+    font-size:29px;line-height:1.6;color:rgba(255,255,255,.78);
+    max-width:780px;
+  }
+  .cover .gold-divider{width:130px;height:3px;background:var(--gold);margin:54px 0 40px;border:none;}
+  .cover .author{font-size:30px;font-weight:700;color:#fff;}
+  .cover .inst{margin-top:12px;font-size:19px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:600;}
+  .cover .epigraph{
+    margin-top:auto;
+    font-family:'Libre Baskerville',serif;font-style:italic;
+    font-size:23px;line-height:1.6;color:rgba(255,255,255,.66);
+    max-width:600px;
+  }
+  .cover-bottom{
+    margin-top:46px;
+    display:flex;justify-content:space-between;align-items:flex-end;gap:40px;
+  }
+  .cover-tag{
+    border:1px solid rgba(199,154,59,.55);
+    padding:26px 30px;max-width:430px;
+  }
+  .cover-tag .t1{font-size:15px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);}
+  .cover-tag .t2{margin-top:10px;font-size:17.5px;line-height:1.5;color:rgba(255,255,255,.7);}
+  .cover-num{font-size:16px;letter-spacing:.2em;color:rgba(255,255,255,.45);font-weight:600;text-transform:uppercase;}
+
+  /* Closing slide */
+  .close-row{display:grid;grid-template-columns:1.4fr 1fr;gap:44px;margin-top:auto;padding-top:36px;align-items:stretch;}
+  .convo-card{border:1px solid rgba(23,32,51,.2);padding:32px 32px;}
+  .convo-card .cc-label{font-size:15px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--teal);margin-bottom:16px;}
+  .convo-card p{font-size:20px;line-height:1.55;color:var(--body);}
+  .qr-final{
+    border:2px dashed var(--teal);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:14px;padding:26px;
+  }
+  .qr-final .label{font-size:14px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);text-align:center;line-height:1.5;}
+  .qr-final .ph{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);opacity:.7;}
+
+  .big-close{
+    margin-top:32px;
+    font-size:42px;font-weight:800;line-height:1.28;color:var(--ink);
+    letter-spacing:-0.01em;max-width:870px;
+  }
+  .theory-line{
+    margin-top:30px;
+    font-size:22px;line-height:1.6;color:var(--ink);font-weight:500;
+    max-width:860px;
+  }
+  .theory-names{
+    margin-top:22px;
+    padding:6px 0 6px 30px;border-left:4px solid var(--gold);
+    font-size:20px;line-height:1.62;color:var(--body);
+    max-width:860px;
+  }
+  .theory-names strong{color:var(--ink);}
+
+  /* ---------- NAVIGATION ---------- */
+  .nav-row{
+    margin-top:26px;
+    display:flex;align-items:center;gap:28px;
+    flex:none;
+  }
+  .nav-btn{
+    width:54px;height:54px;border-radius:50%;
+    border:1px solid rgba(255,255,255,.3);
+    background:rgba(255,255,255,.06);
+    color:#fff;font-size:22px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:all .2s ease;
+  }
+  .nav-btn:hover{background:var(--gold);border-color:var(--gold);color:#0E1422;}
+  .nav-btn:focus-visible{outline:2px solid var(--teal);outline-offset:3px;}
+  .dots{display:flex;gap:10px;}
+  .dot{
+    width:11px;height:11px;border-radius:50%;
+    background:rgba(255,255,255,.22);
+    border:none;cursor:pointer;padding:0;
+    transition:all .25s ease;
+  }
+  .dot.active{background:var(--gold);transform:scale(1.35);}
+  .dot:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
+  .counter{
+    font-size:14px;letter-spacing:.22em;text-transform:uppercase;
+    color:rgba(255,255,255,.5);font-weight:600;min-width:90px;text-align:center;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .slide{transition:none;}
+    .dot{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="stage-wrap">
+<div class="stage" id="stage">
+
+<!-- ================= SLIDE 1 : COVER ================= -->
+<section class="slide cover active" data-slide="1">
+  <div class="cover-mark"><span>RH</span></div>
+  <div class="cover-kicker">A Dissertation Brief</div>
+  <h1>Beyond Measurable Success</h1>
+  <p class="subtitle">An autoethnographic and phenomenological study of resilience and educational transformation after incarceration.</p>
+  <hr class="gold-divider">
+  <div class="author">Dr. Robert L. Hudson</div>
+  <div class="inst">Arcadia University &middot; Educational Leadership &middot; 2026</div>
+  <div class="cover-bottom">
+    <div class="cover-tag">
+      <div class="t1">From the Researcher's Own Voice</div>
+      <div class="t2">A dissertation brief designed to be read, seen, and heard.</div>
+    </div>
+    <div class="cover-num">01 / 14</div>
+  </div>
+</section>
+
+<!-- ================= SLIDE 2 : WHY THIS STUDY MATTERS ================= -->
+<section class="slide interior" data-slide="2">
+  <div class="author-line">Dr. Robert L. Hudson</div>
+  <div class="kicker">Why This Study Matters</div>
+  <div class="slide-body">
+    <h2 class="display" style="margin-top:48px;">The question research forgot to ask.</h2>
+    <hr class="rule teal">
+    <p class="body">Most research on formerly incarcerated students counts what it can measure: recidivism rates, risk scores, completion numbers, employment outcomes.</p>
+    <p class="body">What it rarely asks is this: <strong>What does education actually mean to the person living it?</strong></p>
+    <div class="pullquote gold">Seven formerly incarcerated learners and one researcher-participant answered that question. The findings changed how the question itself needs to be asked.</div>
+    <div class="metrics">
+      <div class="metric"><div class="n">8</div><div class="l">Accounts Analyzed</div></div>
+      <div class="metric"><div class="n">5</div><div class="l">Essential Themes</div></div>
+      <div class="metric"><div class="n">2</div><div class="l">Qualitative Methods</div></div>
+    </div>
+  </div>
+  <div class="segue">But who is asking the question, and why does that change the answer</div>
+  <div class="footer"><span>Beyond Measurable Success</span><span class="num">02 / 14</span></div>
+</section>
+
+<!-- ================= SLIDE 3 : POSITIONALITY ================= -->
+<section class="slide interior" data-slide="3">
+  <div class="author-line">Dr. Robert L. Hudson</div>
+  <div class="kicker">Positionality</div>
+  <div class="slide-body">
+    <h2 class="display smaller" style="margin-top:44px;">From the Researcher's Own Voice.</h2>
+    <hr class="rule gold">
+    <div class="twocol">
+      <div class="col boxed">
+        <div class="col-label">The Researcher's Position</div>
+        <p>I am not an outsider looking in. I am a returning citizen who served a significant amount of time, came home, navigated the same institutions these participants describe, and now works inside higher education. I studied this experience as someone who has lived it, and I am one of the eight voices in this study.</p>
+      </div>
+      <div class="col boxed">
+        <div class="col-label">Who Usually Tells This Story</div>
+        <p>Criminologists counting recidivism. Program evaluators measuring outcomes. Policy analysts assessing risk. Trained to study this population from a distance, and too often mistaking the record for the person behind it.</p>
+      </div>
+    </div>
+    <p class="body" style="margin-top:36px;font-size:22px;">This study brings those two positions together in one person. The lived experience supplies insight no outside researcher can reach; the scholarly training holds that experience to the same rigor as every other account. <strong>That is not a conflict of interest. It is the methodology.</strong></p>
+    <div class="audio-player" id="r3">
+      <div class="ap-label">Hear Dr. Hudson</div>
+      <div class="ap-sub">A reflection on why lived experience belongs inside the research.</div>
+      <audio controls preload="none" src="audio/reflection-3-positionality.m4a"></audio>
+    </div>
+  </div>
+  <div class="footer"><span>Beyond Measurable Success</span><span class="num">03 / 14</span></div>
+</section>
+
+<!-- ================= SLIDE 4 : PROBLEM & PURPOSE ================= -->
+<section class="slide interior" data-slide="4">
+  <div class="author-line">Dr. Robert L. Hudson</div>
+  <div class="kicker">Problem and Purpose</div>
+  <div class="slide-body">
+    <h2 class="display smaller" style="margin-top:44px;">Not subjects of inquiry. Knowledge holders.</h2>
+    <hr class="rule gold">
+    <div class="twocol">
+      <div class="col">
+        <div class="col-label">The Problem</div>
+        <p>Formerly incarcerated learners have largely been positioned as subjects of inquiry, not as knowledge producers about their own educational lives.</p>
+      </div>
+      <div class="col">
+        <div class="col-label">The Gap</div>
+        <p>They have been treated as people to be studied and measured, rarely as people who hold real knowledge about their own educational lives. The expertise of the person who lived it goes unasked.</p>
+      </div>
+    </div>
+    <div class="purpose-block">
+      <div class="pb-label">What This Study Set Out to Understand</div>
+      <div class="pb-text">How do formerly incarcerated students interpret college experiences in ways that shape resilience, identity reconstruction, and navigation of systemic barriers?</div>
+    </div>
+  </div>
+  <div class="segue">To answer it, the study listened in two different ways</div>
+  <div class="footer"><span>Beyond Measurable Success</span><span class="num">04 / 14</span></div>
+</section>
+
+<!-- ================= SLIDE 5 : PHENOMENOLOGY + HERMENEUTIC CIRCLE ================= -->
+<section class="slide interior" data-slide="5">
+  <div class="author-line">Dr. Robert L. Hudson</div>
+  <div class="kicker">Methodology &middot; Strand One</div>
+  <div class="slide-body">
+    <h2 class="display smaller" style="margin-top:40px;">Listening for what lived experience feels like.</h2>
+    <hr class="rule teal" style="margin:28px 0 30px;">
+    <div class="method-block gold-top">
+      <div class="method-name">Hermeneutic Phenomenology</div>
+      <div class="method-cite">van Manen, 1997 &amp; 2014</div>
+      <p class="method-desc">Seven in-depth interviews, each one transcribed, read, and re-read in cycles: as a whole story, then passage by passage, then line by line, then as a whole story again. Phenomenology does not ask what happened. It asks what it was like.</p>
+    </div>
+    <div class="circle-wrap">
+      <svg width="860" height="470" viewBox="0 0 860 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The hermeneutic circle: six stages of cyclical interpretation">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#C79A3B"/>
+          </marker>
+        </defs>
+        <!-- circle drawn as three clockwise arcs with arrowheads -->
+        <path d="M 430 80 A 150 150 0 0 1 559.9 305" fill="none" stroke="#C79A3B" stroke-width="2.5" marker-end="url(#arrow)"/>
+        <path d="M 559.9 305 A 150 150 0 0 1 300.1 305" fill="none" stroke="#C79A3B" stroke-width="2.5" marker-end="url(#arrow)"/>
+        <path d="M 300.1 305 A 150 150 0 0 1 430 80" fill="none" stroke="#C79A3B" stroke-width="2.5" marker-end="url(#arrow)"/>
+        <!-- center label -->
+        <text x="430" y="222" text-anchor="middle" class="hc-center-1">The Hermeneutic Circle</text>
+        <text x="430" y="252" text-anchor="middle" class="hc-center-2">moving between parts and whole</text>
+        <!-- nodes -->
+        <circle cx="430" cy="80" r="6" fill="#18B7B3"/>
+        <circle cx="559.9" cy="155" r="6" fill="#18B7B3"/>
+        <circle cx="559.9" cy="305" r="6" fill="#18B7B3"/>
+        <circle cx="430" cy="380" r="6" fill="#18B7B3"/>
+        <circle cx="300.1" cy="305" r="6" fill="#18B7B3"/>
+        <circle cx="300.1" cy="155" r="6" fill="#18B7B3"/>
+        <!-- labels -->
+        <text x="430" y="42" text-anchor="middle" class="hc-num">01</text>
+        <text x="430" y="64" text-anchor="middle" class="hc-label">In-Depth Interviews</text>
+        <text x="582" y="133" text-anchor="start" class="hc-num">02</text>
+        <text x="582" y="155" text-anchor="start" class="hc-label">Immersion &amp; Re-Reading</text>
+        <text x="582" y="305" text-anchor="start" class="hc-num">03</text>
+        <text x="582" y="327" text-anchor="start" class="hc-label">Holistic Reading</text>
+        <text x="430" y="414" text-anchor="middle" class="hc-num">04</text>
+        <text x="430" y="436" text-anchor="middle" class="hc-label">Selective Reading</text>
+        <text x="278" y="305" text-anchor="end" class="hc-num">05</text>
+        <text x="278" y="327" text-anchor="end" class="hc-label">Line-by-Line Reading</text>
+        <text x="278" y="133" text-anchor="end" class="hc-num">06</text>
+        <text x="278" y="155" text-anchor="end" class="hc-label">Interpretive Writing</text>
+      </svg>
+    </div>
+    <p class="circle-caption">Earlier readings were revisited and revised as new understandings emerged. The depth of this study came from returning to each account again and again, not from collecting once and moving on.</p>
+  </div>
+  <div class="footer"><span>Beyond Measurable Success</span><span class="num">05 / 14</span></div>
+</section>
+
+<!-- ================= SLIDE 6 : AUTOETHNOGRAPHY ================= -->
+<section class="slide interior teal-bar" data-slide="6">
+  <div class="author-line">Dr. Robert L. Hudson</div>
+  <div class="kicker">Methodology &middot; Strand Two</div>
+  <div class="slide-body">
+    <h2 class="display smaller" style="margin-top:44px;">From the inside out.</h2>
+    <hr class="rule teal">
+    <div class="method-block teal-top">
+      <div class="method-name">Autoethnography</div>
+      <div class="method-cite">Chang, 2008 &middot; Ellis et al., 2011</div>
+      <p class="method-desc">Most research on justice-impacted learners is conducted by people who have not lived the experience. Autoethnography disrupts that. It treats the researcher's own lived experience as legitimate data, held to the same critical analysis as every participant interview.</p>
+    </div>
+    <p class="plain-terms">In plain terms: his story did not get a pass because it was his. It was coded, analyzed, and tested against seven other accounts with the same scrutiny. The lived experience supplies the data. The method supplies the discipline.</p>
+    <div class="circle-wrap" style="margin-top:auto;">
+      <svg width="900" height="300" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Seven participant interviews and one researcher account flow into the same analysis, producing five essential themes">
+        <defs>
+          <marker id="tarrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#18B7B3"/>
+          </marker>
+        </defs>
+        <!-- input boxes -->
+        <rect x="14" y="42" width="306" height="66" fill="none" stroke="rgba(23,32,51,.3)" stroke-width="1.5"/>
+        <text x="167" y="70" text-anchor="middle" class="d-label">Seven Participant</text>
+        <text x="167" y="94" text-anchor="middle" class="d-label">Interviews</text>
+        <rect x="14" y="192" width="306" height="66" fill="none" stroke="rgba(23,32,51,.3)" stroke-width="1.5"/>
+        <text x="167" y="220" text-anchor="middle" class="d-label">One Researcher Account</text>
+        <text x="167" y="244" text-anchor="middle" class="d-sub">Autoethnography</text>
+        <!-- converging arrows -->
+        <path d="M 322 75 C 400 75, 420 125, 458 140" fill="none" stroke="#18B7B3" stroke-width="2.5" marker-end="url(#tarrow)"/>
+        <path d="M 322 225 C 400 225, 420 175, 458 160" fill="none" stroke="#18B7B3" stroke-width="2.5" marker-end="url(#tarrow)"/>
+        <!-- center node -->
+        <rect x="466" y="108" width="210" height="84" fill="none" stroke="#18B7B3" stroke-width="2.5"/>
+        <text x="571" y="158" text-anchor="middle" class="d-strong">The Same Analysis</text>
+        <text x="571" y="222" text-anchor="middle" class="d-sub" style="font-size:13px;">coded &middot; themed &middot; scrutinized</text>
+        <!-- output arrow -->
+        <path d="M 680 150 L 742 150" fill="none" stroke="#18B7B3" stroke-width="2.5" marker-end="url(#tarrow)"/>
+        <text x="756" y="143" text-anchor="start" class="d-strong">Five Essential</text>
+        <text x="756" y="170" text-anchor="start" class="d-strong">Themes</text>
+      </svg>
+    </div>
+  </div>
+  <div class="segue">Out of that listening, five themes emerged</div>
+  <div class="footer"><span>Beyond Measurable Success</span><span class="num">06 / 14</span></div>
+</section>
+
+<!-- ================= SLIDE 7 : FIVE THEMES ================= -->
+<section class="slide interior" data-slide="7">
+  <div class="author-line">Dr. Robert L. Hudson</div>
+  <div class="kicker">Findings</div>
+  <div class="slide-body">
+    <h2 class="display smaller" style="margin-top:40px;">Five essential themes.</h2>
+    <p class="body" style="margin-top:20px;font-size:21px;">Across seven interviews and one autoethnographic account, five themes emerged from the data. Three are explored in depth on the pages that follow.</p>
+    <div style="margin-top:22px;">
+      <div class="theme-row">
+        <div class="theme-num">01</div>
+        <div class="theme-text">
+          <h3>Education as Legitimacy and Counter-Narrative</h3>
+          <p>A degree rewrites the story others told about who you are.</p>
+        </div>
+      </div>
+      <div class="theme-row">
+        <div class="theme-num">02</div>
+        <div class="theme-text">
+          <h3>The Individual Who Showed Up</h3>
+          <div class="badge-line"><span class="badge">Explored in depth</span></div>
+          <p>It was never a program. It was always a person.</p>
+        </div>
+      </div>
+      <div class="theme-row">
+        <div class="theme-num">03</div>
+        <div class="theme-text">
+          <h3>Disclosure as Paradox</h3>
+          <div class="badge-line"><span class="badge">Explored in depth</span></div>
+          <p>Honesty about a record opened some doors and closed others.</p>
+        </div>
+      </div>
+      <div class="theme-row">
+        <div class="theme-num">04</div>
+        <div class="theme-text">
+          <h3>Identity Reconstruction as Ongoing Work</h3>
+          <p>Becoming someone different is continuous, nonlinear, and never fully finished.</p>
+        </div>
+      </div>
+      <div class="theme-row">
+        <div class="theme-num">05</div>
+        <div class="theme-text">
+          <h3>Generative Commitment as the Meaning of Education</h3>
+          <div class="badge-line"><span class="badge">Explored in depth</span></div>
+          <p>Success meant helping peers and those with similar life experiences, not just yourself.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span>Beyond Measurable Success</span><span class="num">07 / 14</span></div>
+</section>
+
+<!-- ================= SLIDE 8 : THEME 2 FEATURED ================= -->
+<section class="slide interior" data-slide="8">
+  <div class="author-line">Dr. Robert L. Hudson</div>
+  <div class="kicker">Finding &middot; Theme Two</div>
+  <div class="slide-body">
+    <div style="margin-top:40px;"><span class="badge above">The Human Center of This Study</span></div>
+    <h2 class="display smaller">The Individual Who Showed Up.</h2>
+    <hr class="rule gold">
+    <p class="theme-frame">Why it matters: it was never a program that changed a life. It was always a person.</p>
+    <p class="body" style="font-size:22.5px;">Every participant in this study could name one individual: a mentor, an educator, an administrator, someone who saw them before they could fully see themselves. That person did not have a formal intervention title. They simply showed up with consistency, without conditions, at the moment it mattered most.</p>
+    <p class="quote-setup">William named two people: an older man he met in prison who read everything he could get his hands on, and a case manager who sat with him after release to complete his financial aid application.</p>
+    <div class="quoteblock" style="margin-top:20px;">"That combination, this man planting something years before and this woman handing me a way in when I got out, that's what made it real."
+      <div class="attrib">William &middot; Research Participant</div>
+    </div>
+    <div class="essence teal">Institutions create conditions. People create possibility. This finding asks every college to examine not just its programs, but the people inside them.</div>
+    <div class="audio-player" id="r8">
+      <div class="ap-label">Researcher Reflection</div>
+      <div class="ap-sub">Dr. Hudson on the person who showed up for him.</div>
+      <audio controls preload="none" src="audio/reflection-8-showed-up.m4a"></audio>
+    </div>
+  </div>
+  <div class="footer"><span>Beyond Measurable Success</span><span class="num">08 / 14</span></div>
+</section>
+
+<!-- ================= SLIDE 9 : THEME 3 FEATURED ================= -->
+<section class="slide interior" data-slide="9">
+  <div class="author-line">Dr. Robert L. Hudson</div>
+  <div class="kicker">Finding &middot; Theme Three</div>
+  <div class="slide-body">
+    <div style="margin-top:40px;"><span class="badge above">The Finding That Challenges Institutions</span></div>
+    <h2 class="display smaller">Disclosure as Paradox.</h2>
+    <hr class="rule teal">
+    <p class="theme-frame">Why it matters: honesty about a record was both the price of entry and the thing that could get you turned away.</p>
+    <p class="body" style="font-size:22.5px;">Being honest about a record opened some doors and closed others. Participants described disclosure not as a moment but as a recurring calculation: when to tell, who to tell, what it would cost, what it might unlock. This study found something deeper than individual choice. Disclosure functioned as a structural condition of access, shaped by institutional policies, campus culture, and the unspoken rules of who belongs in which rooms.</p>
+    <div class="quoteblock">"I didn't have doors start opening for me until I started disclosing it. But it was kind of a special hell in and of itself to disclose all of this in order to get opportunities."
+      <div class="attrib">Maya &middot; Research Participant</div>
+    </div>
+    <div class="essence gold">Telling the truth about your record was both a risk and a requirement. That is not a personal problem to manage. It is an institutional design problem to solve.</div>
+  </div>
+  <div class="footer"><span>Beyond Measurable Success</span><span class="num">09 / 14</span></div>
+</section>
+
+<!-- ================= SLIDE 10 : THEME 5 FEATURED ================= -->
+<section class="slide interior" data-slide="10">
+  <div class="author-line">Dr. Robert L. Hudson</div>
+  <div class="kicker">Finding &middot; Theme Five</div>
+  <div class="slide-body">
+    <div style="margin-top:40px;"><span class="badge above">Where the Research Lands</span></div>
+    <h2 class="display smaller">Generative Commitment.</h2>
+    <hr class="rule gold">
+    <p class="theme-frame">Why it matters: the point of finishing was never personal success. It was what you could do for the next person.</p>
+    <p class="body" style="font-size:22.5px;">The endpoint was never personal success alone. Participants described education as meaningful precisely when it stopped pointing inward and began pointing outward: toward mentoring others, toward giving back, toward reshaping the path for those who come next. This finding connects directly to Maruna's theory of desistance and McAdams' redemption narrative. The completion of a degree was not the finish line. It was the beginning of an obligation.</p>
+    <div class="quoteblock">"The most important thing is that in my work, I support young students and my peers to realize their dreams."
+      <div class="attrib">Rob &middot; Researcher-Participant (Dr. Robert L. Hudson)</div>
+    </div>
+    <div class="essence gold">Education became meaningful not when it was received, but when it was returned. That is what this research means by transformation.</div>
+    <div class="audio-player" id="r10">
+      <div class="ap-label">Researcher Reflection</div>
+      <div class="ap-sub">Dr. Hudson on why education became meaningful when it turned outward.</div>
+      <audio controls preload="none" src="audio/reflection-10-generative.m4a"></audio>
+    </div>
+  </div>
+  <div class="footer"><span>Beyond Measurable Success</span><span class="num">10 / 14</span></div>
+</section>
+
+<!-- ================= SLIDE 11 : SYNTHESIS (BEYOND MEASURABLE SUCCESS) ================= -->
+<section class="slide interior" data-slide="11">
+  <div class="author-line">Dr. Robert L. Hudson</div>
+  <div class="kicker">The Argument</div>
+  <div class="slide-body">
+    <h2 class="display smaller" style="margin-top:30px;">Beyond measurable success.</h2>
+    <hr class="rule gold" style="margin:20px 0 20px;">
+    <p class="syn-intro">Every person in this study arrived carrying numbers: a GPA, a risk score, a record. Those numbers are real, and they matter. But each one measures something narrow, and misses the person standing behind it.</p>
+    <div class="syn-table">
+      <div class="syn-head">
+        <div class="sh left">The Measure</div>
+        <div class="sh right">What It Misses</div>
+      </div>
+      <div class="syn-row">
+        <div>
+          <div class="name">The GPA</div>
+          <div class="syn-cell left">Records that you passed the course.</div>
+        </div>
+        <div class="syn-cell right" style="align-self:center;">It cannot record what the course did inside you. Maya passed her classes and stopped believing she was, in her own words, an irredeemable soul.</div>
+      </div>
+      <div class="syn-row">
+        <div>
+          <div class="name">The Risk Score</div>
+          <div class="syn-cell left">Judges you by what you did, not what you are doing now.</div>
+        </div>
+        <div class="syn-cell right" style="align-self:center;">Lead with risk and you build barriers by default, not opportunities. Aaron once used drugs near the campus where he later took classes; today he is a peer recovery specialist who returns to support people still inside.</div>
+      </div>
+      <div class="syn-row">
+        <div>
+          <div class="name">The Credential</div>
+          <div class="syn-cell left">Records that you finished.</div>
+        </div>
+        <div class="syn-cell right" style="align-self:center;">It cannot record why finishing mattered. Malcolm earned his degree, but the point was never the diploma. It was his son, whose future he was investing in, and everyone he wanted to build a better path for.</div>
+      </div>
+    </div>
+    <div class="syn-land">
+      <div class="l1">This is what "beyond measurable success" means: the things we measure matter, but there is always more to a person than a GPA, a risk score, or a record can hold.</div>
+      <div class="l2"><strong>Measure only what is easy to count, and you build barriers around people instead of opportunities for them.</strong></div>
+    </div>
+    <p class="syn-epigraph">"Not everything that counts can be counted, and not everything that can be counted counts."</p>
+  </div>
+  <div class="segue">No study sees everything. Here is what this one could not</div>
+  <div class="footer"><span>Beyond Measurable Success</span><span class="num">11 / 14</span></div>
+</section>
+
+<!-- ================= SLIDE 12 : LIMITATIONS ================= -->
+<section class="slide interior" data-slide="12">
+  <div class="author-line">Dr. Robert L. Hudson</div>
+  <div class="kicker">Research Limitations</div>
+  <div class="slide-body">
+    <h2 class="display smaller" style="margin-top:38px;">What this study cannot claim.</h2>
+    <hr class="rule gold" style="margin:24px 0 26px;">
+    <p class="body" style="font-size:21px;max-width:880px;">Every study has boundaries. Naming them is not a weakness. It is the intellectual honesty that makes the findings trustworthy. Three of these point most clearly to where future research must go.</p>
+    <div class="lim-list">
+      <div class="lim-item key">
+        <div class="lim-top"><h4>It went deep, not wide</h4><span class="badge">Where research goes next</span></div>
+        <p>Eight people, not hundreds. This study can tell you what education meant to them. It cannot tell you how often the same thing happens across the wider population of justice-impacted learners.</p>
+      </div>
+      <div class="lim-item key">
+        <div class="lim-top"><h4>Years had already passed</h4><span class="badge">Where research goes next</span></div>
+        <p>Everyone had been home at least five years, most for ten or more. Meaning settles with time. For someone in the first hard months after release, when barriers are sharpest, the experience may look very different.</p>
+      </div>
+      <div class="lim-item key">
+        <div class="lim-top"><h4>Not everyone was in the room</h4><span class="badge">Where research goes next</span></div>
+        <p>Seven of eight participants were men. Only one woman, one juvenile experience, a limited range of racial and ethnic backgrounds. Whole populations of justice-impacted learners are not yet represented here.</p>
+      </div>
+      <div class="lim-item">
+        <div class="lim-top"><h4>The researcher was inside the story</h4></div>
+        <p>An insider's view shapes interpretation. Reflexive journaling, member checks, and peer debriefing were used to make that influence visible and accountable, not to pretend it away.</p>
+      </div>
+      <div class="lim-item">
+        <div class="lim-top"><h4>One conversation, one method</h4></div>
+        <p>These findings reflect what people said in a single interview. The same person, on a different day or through a different method, might tell it another way.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span>Beyond Measurable Success</span><span class="num">12 / 14</span></div>
+</section>
+
+<!-- ================= SLIDE 13 : SO NOW WHAT ================= -->
+<section class="slide interior" data-slide="13">
+  <div class="author-line">Dr. Robert L. Hudson</div>
+  <div class="kicker">So Now What?</div>
+  <div class="slide-body">
+    <h2 class="display smaller" style="margin-top:36px;">So now what?</h2>
+    <hr class="rule gold" style="margin:24px 0 26px;">
+    <p class="body" style="font-size:21.5px;max-width:920px;">If you have been incarcerated or justice-impacted and you are in a classroom now, or thinking about it: the doubt you feel in rooms that were not built for you is a predictable response, not a personal failing. You do not need a hidden talent waiting to be discovered. You are already becoming who you are by showing up, and what you have lived through is the foundation for what comes next. Your transformation is ongoing work, never a finish line, and its deepest meaning may be what it makes possible for the people who come after you.</p>
+    <div class="imp-band">What colleges and universities should do</div>
+    <div class="imp-grid">
+      <div class="imp">
+        <h4>Invest in people, not just programs</h4>
+        <p>For every student in this study, one person made the difference: a mentor, an advisor, someone who showed up. Fund and support those relationships directly, instead of assuming a program will do it.</p>
+      </div>
+      <div class="imp">
+        <h4>Make disclosure safe</h4>
+        <p>Right now, telling the truth about a record can cost a student their place. Write policies so that being honest opens doors instead of closing them, and so no student has to manage that risk alone.</p>
+      </div>
+      <div class="imp">
+        <h4>Measure more than completion</h4>
+        <p>Track belonging, stability, identity, and whether students go on to help others, not just graduation and employment rates. Colleges resource what they measure, so the measures have to change.</p>
+      </div>
+      <div class="imp">
+        <h4>Fix access at the front door</h4>
+        <p>Admissions, financial aid, and background checks decide who gets in before a class is ever taken. Review those policies for the barriers they quietly create for justice-impacted applicants.</p>
+      </div>
+    </div>
+  </div>
+  <div class="segue">What all of it came to mean</div>
+  <div class="footer"><span>Beyond Measurable Success</span><span class="num">13 / 14</span></div>
+</section>
+
+<!-- ================= SLIDE 14 : CLOSING ================= -->
+<section class="slide interior" data-slide="14">
+  <div class="author-line">Dr. Robert L. Hudson</div>
+  <div class="kicker">What I Learned</div>
+  <div class="slide-body">
+    <h2 class="display smaller" style="margin-top:36px;">What this work taught me.</h2>
+    <hr class="rule gold" style="margin:24px 0 26px;">
+    <div class="big-close" style="margin-top:0;">I am not alone.</div>
+    <p class="theory-line" style="margin-top:22px;">I learned that lived experience carries more knowledge than we ever imagine, and that justice-impacted learners are holding insight no one has discovered yet. I learned that higher education is not a credential you collect. It is a way of living. And I learned that the things we do not wear on our sleeves, the parts shaped by what we survived, may be the strongest assets we have.</p>
+    <div class="theory-names">These are not just feelings. They are established theory: <strong>Mezirow's transformative learning</strong>, <strong>Maruna and McAdams' redemption narrative</strong>, <strong>Crenshaw's intersectionality</strong>. The participants confirmed what these frameworks predict, and pushed them further.</div>
+    <p class="body" style="margin-top:24px;font-size:21px;">Higher education after incarceration is about showing up in rooms that were not designed for you, building a different narrative, and turning the meaning of that education outward toward others.</p>
+    <div class="close-row">
+      <div class="convo-card">
+        <div class="cc-label">Continue the Conversation</div>
+        <p>Invite the research into classrooms, reentry programs, leadership tables, and policy conversations.</p>
+      </div>
+      <div class="qr-final audio-final" id="r14">
+        <div class="ap-label">Closing Reflection</div>
+        <audio controls preload="none" src="audio/reflection-14-closing.m4a"></audio>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span>Beyond Measurable Success</span><span class="num">14 / 14</span></div>
+</section>
+
+</div><!-- /stage -->
+</div><!-- /stage-wrap -->
+
+<!-- ================= NAVIGATION ================= -->
+<div class="nav-row">
+  <button class="nav-btn" id="prevBtn" aria-label="Previous slide">&#8592;</button>
+  <div class="dots" id="dots" role="tablist" aria-label="Slide navigation"></div>
+  <button class="nav-btn" id="nextBtn" aria-label="Next slide">&#8594;</button>
+  <div class="counter" id="counter">01 / 14</div>
+</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total = slides.length;
+  var current = 0;
+  var dotsWrap = document.getElementById('dots');
+  var counter = document.getElementById('counter');
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+  var stage = document.getElementById('stage');
+  var stageWrap = document.querySelector('.stage-wrap');
+
+  slides.forEach(function(_, i){
+    var d = document.createElement('button');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    d.addEventListener('click', function(){ go(i); });
+    dotsWrap.appendChild(d);
+  });
+  var dots = Array.prototype.slice.call(dotsWrap.children);
+
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+
+  function go(i){
+    if(i < 0) i = 0;
+    if(i > total - 1) i = total - 1;
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = i;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    counter.textContent = pad(current + 1) + ' / ' + pad(total);
+  }
+
+  prevBtn.addEventListener('click', function(){ go(current - 1); });
+  nextBtn.addEventListener('click', function(){ go(current + 1); });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowLeft'){ go(current - 1); }
+    if(e.key === 'ArrowRight'){ go(current + 1); }
+  });
+
+  function fit(){
+    var availW = stageWrap.clientWidth;
+    var availH = window.innerHeight - 160;
+    var scale = Math.min(availW / 1080, availH / 1350, 1);
+    stage.style.transform = 'scale(' + scale + ')';
+    stage.style.marginBottom = (-(1 - scale) * 1350) + 'px';
+    stage.style.marginLeft = 'auto';
+    stage.style.marginRight = 'auto';
+  }
+  window.addEventListener('resize', fit);
+  fit();
+
+  // Anchor navigation: QR codes point to #r3, #r8, #r10, #r14
+  var anchorMap = { r3:2, r8:7, r10:9, r14:13 };
+  function goToHash(){
+    var h = (window.location.hash || '').replace('#','');
+    if(anchorMap.hasOwnProperty(h)){
+      go(anchorMap[h]);
+    }
+  }
+  window.addEventListener('hashchange', goToHash);
+  goToHash();
+})();
+</script>
+</body>
+</html>
