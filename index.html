@@ -470,11 +470,44 @@
   .brief-head .bh-title{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);}
   .brief-head .bh-sub{margin-top:10px;font-size:15px;line-height:1.55;color:rgba(237,238,242,.6);}
   @media (max-width:680px){
-    .interior{padding:40px 26px 34px 30px;}
-    .cover{padding:52px 26px 44px 30px;}
-    .scroll-wrap{padding:0 12px 60px;}
-    .brief-head{padding:32px 20px 14px;}
+    .interior{padding:38px 22px 30px 26px;}
+    .cover{padding:48px 22px 40px 26px;}
+    .scroll-wrap{padding:0 10px 60px;}
+    .brief-head{padding:30px 18px 12px;}
+    /* stack all two-column layouts vertically */
+    .twocol{grid-template-columns:1fr;gap:22px;}
+    .imp-grid{grid-template-columns:1fr;gap:26px;}
+    .close-row{grid-template-columns:1fr;gap:24px;}
+    .syn-head, .syn-row{grid-template-columns:1fr;gap:6px;}
+    .syn-row{padding:16px 0;}
+    .syn-row .syn-cell.right{margin-top:8px;}
+    .syn-head .sh.left{display:none;}
+    .syn-head .sh.right{display:none;}
+    /* metrics: stack instead of running off-screen */
+    .metrics{flex-direction:column;gap:22px;}
+    .metric{width:100%;}
+    /* headline sizes down a touch so long words don't overflow */
+    h2.display{font-size:34px;}
+    h2.display.smaller{font-size:31px;}
+    .cover h1{font-size:44px;}
+    .method-name{font-size:26px;}
+    .big-close{font-size:25px;}
+    /* long uppercase labels: loosen letter-spacing so they don't clip */
+    .col-label{letter-spacing:.12em;}
+    .metric .l{letter-spacing:.10em;}
+    .footer{letter-spacing:.06em;flex-wrap:wrap;gap:4px;}
+    .kicker{letter-spacing:.16em;}
+    .author-line{letter-spacing:.14em;}
+    /* prevent any horizontal overflow */
+    .slide, .interior, .cover{max-width:100%;box-sizing:border-box;}
+    .method-desc, p.body, .twocol p, .syn-cell{max-width:100%;}
+    /* hermeneutic circle + streams svg: scale to fit */
+    .circle-wrap svg{width:100%;height:auto;}
   }
+  /* global overflow guard */
+  html,body{overflow-x:hidden;}
+  .slide{max-width:100%;box-sizing:border-box;}
+  svg{max-width:100%;}
 </style>
 </head>
 <body>
