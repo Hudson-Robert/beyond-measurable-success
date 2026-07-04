@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beyond Measurable Success | Dissertation Brief</title>
+<title>Beyond Measurable Success | Dr. Robert L. Hudson</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
     --teal:#18B7B3;
     --paper:#F5EFE5;
     --ink:#172033;
-    --body:rgba(23,32,51,0.62);
+    --body:rgba(23,32,51,0.78);
     --navy1:#0B1426;
     --navy2:#13203B;
     --navy3:#1A2C4E;
@@ -23,46 +23,30 @@
   body{
     background:#0E1422;
     font-family:'Inter',sans-serif;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    min-height:100vh;
-    padding:24px 16px;
+    margin:0;
+    padding:0;
     color:var(--ink);
   }
+  .scroll-wrap{
+    max-width:820px;
+    margin:0 auto;
+    padding:0 0 80px;
+  }
   /* ---------- STAGE & SCALING ---------- */
-  .stage-wrap{
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:100%;
-    flex:1;
-  }
-  .stage{
-    position:relative;
-    width:1080px;
-    height:1350px;
-    transform-origin:top center;
-    flex:none;
-  }
+  .stage-wrap{ width:100%; }
+  .stage{ width:100%; }
   .slide{
-    position:absolute;
-    inset:0;
-    width:1080px;
-    height:1350px;
+    position:relative;
+    width:100%;
     background:var(--paper);
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+    margin:0 0 28px;
+    border-radius:2px;
     overflow:hidden;
-    opacity:0;
-    visibility:hidden;
-    transition:opacity .45s ease;
-    box-shadow:0 30px 80px rgba(0,0,0,.45);
   }
-  .slide.active{opacity:1;visibility:visible;}
 
   /* ---------- INTERIOR SLIDE SCAFFOLD ---------- */
-  .interior{padding:90px 96px 80px 110px;display:flex;flex-direction:column;}
+  .interior{padding:56px 56px 48px 60px;display:flex;flex-direction:column;}
   .interior::before{
     content:"";
     position:absolute;
@@ -79,8 +63,8 @@
   }
   .kicker{
     margin-top:14px;
-    font-size:15px;font-weight:600;letter-spacing:.32em;
-    text-transform:uppercase;color:rgba(23,32,51,.45);
+    font-size:16px;font-weight:600;letter-spacing:.30em;
+    text-transform:uppercase;color:rgba(23,32,51,.58);
   }
   .slide-body{flex:1;display:flex;flex-direction:column;}
   .segue{
@@ -96,21 +80,21 @@
     padding-top:22px;
     border-top:1px solid rgba(23,32,51,.18);
     display:flex;justify-content:space-between;align-items:baseline;
-    font-size:15px;letter-spacing:.14em;text-transform:uppercase;
-    color:rgba(23,32,51,.45);font-weight:600;
+    font-size:16px;letter-spacing:.13em;text-transform:uppercase;
+    color:rgba(23,32,51,.58);font-weight:600;
   }
   .footer .num{font-weight:700;color:rgba(23,32,51,.6);}
 
   h2.display{
-    font-size:72px;line-height:1.06;font-weight:800;
+    font-size:40px;line-height:1.06;font-weight:800;
     letter-spacing:-0.015em;color:var(--ink);
   }
-  h2.display.smaller{font-size:62px;}
+  h2.display.smaller{font-size:36px;}
   .rule{height:3px;width:120px;border:none;margin:34px 0 40px;}
   .rule.gold{background:var(--gold);}
   .rule.teal{background:var(--teal);}
   p.body{
-    font-size:24px;line-height:1.62;color:var(--body);
+    font-size:18px;line-height:1.62;color:var(--body);
     max-width:840px;
   }
   p.body + p.body{margin-top:26px;}
@@ -122,22 +106,22 @@
     padding:8px 0 8px 34px;
     font-family:'Libre Baskerville',serif;
     font-style:italic;
-    font-size:28px;line-height:1.6;color:var(--ink);
+    font-size:17px;line-height:1.6;color:var(--ink);
   }
   .pullquote.gold{border-left:4px solid var(--gold);}
   .pullquote.teal{border-left:4px solid var(--teal);}
 
   .metrics{display:flex;gap:54px;margin-top:auto;padding-top:30px;}
   .metric{padding-left:22px;border-left:3px solid var(--teal);}
-  .metric .n{font-size:58px;font-weight:800;color:var(--ink);line-height:1;}
-  .metric .l{margin-top:10px;font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:var(--body);font-weight:600;}
+  .metric .n{font-size:38px;font-weight:800;color:var(--ink);line-height:1;}
+  .metric .l{margin-top:10px;font-size:17px;letter-spacing:.18em;text-transform:uppercase;color:var(--body);font-weight:600;}
 
   .twocol{display:grid;grid-template-columns:1fr 1fr;gap:46px;margin-top:8px;}
   .col-label{
-    font-size:15px;font-weight:700;letter-spacing:.26em;
+    font-size:16px;font-weight:700;letter-spacing:.24em;
     text-transform:uppercase;color:var(--teal);margin-bottom:18px;
   }
-  .twocol p{font-size:23px;line-height:1.6;color:var(--body);}
+  .twocol p{font-size:18px;line-height:1.6;color:var(--body);}
   .twocol .col.boxed{border:1px solid rgba(23,32,51,.18);padding:34px 32px;}
 
   .purpose-block{
@@ -147,29 +131,29 @@
     border-bottom:3px solid var(--gold);
   }
   .purpose-block .pb-label{
-    font-size:15px;font-weight:700;letter-spacing:.26em;
+    font-size:16px;font-weight:700;letter-spacing:.24em;
     text-transform:uppercase;color:var(--teal);margin-bottom:22px;
   }
   .purpose-block .pb-text{
     font-family:'Libre Baskerville',serif;
-    font-size:30px;line-height:1.62;color:var(--ink);
+    font-size:18px;line-height:1.62;color:var(--ink);
   }
 
   .method-block{padding-top:28px;margin-top:6px;}
   .method-block.gold-top{border-top:3px solid var(--gold);}
   .method-block.teal-top{border-top:3px solid var(--teal);}
-  .method-name{font-size:44px;font-weight:800;color:var(--ink);letter-spacing:-0.01em;}
+  .method-name{font-size:17px;font-weight:800;color:var(--ink);letter-spacing:-0.01em;}
   .method-cite{
-    margin-top:10px;font-size:15px;font-weight:600;letter-spacing:.22em;
-    text-transform:uppercase;color:rgba(23,32,51,.45);
+    margin-top:10px;font-size:16px;font-weight:600;letter-spacing:.20em;
+    text-transform:uppercase;color:rgba(23,32,51,.58);
   }
-  .method-desc{margin-top:22px;font-size:22.5px;line-height:1.6;color:var(--body);max-width:860px;}
+  .method-desc{margin-top:22px;font-size:18px;line-height:1.6;color:var(--body);max-width:860px;}
 
   .plain-terms{
     margin-top:36px;
     font-family:'Libre Baskerville',serif;
     font-style:italic;
-    font-size:25px;line-height:1.62;color:var(--gold);
+    font-size:16px;line-height:1.62;color:var(--gold);
     max-width:850px;
   }
 
@@ -177,17 +161,17 @@
   .circle-wrap{display:flex;justify-content:center;margin:26px 0 8px;}
   .circle-caption{
     text-align:center;
-    font-size:19px;line-height:1.5;color:var(--body);
+    font-size:16.5px;line-height:1.52;color:var(--body);
     max-width:720px;margin:6px auto 0;
   }
-  .hc-label{font-family:'Inter',sans-serif;font-size:19px;font-weight:600;fill:#172033;}
-  .hc-num{font-family:'Inter',sans-serif;font-size:15px;font-weight:800;fill:#C79A3B;letter-spacing:.08em;}
-  .hc-center-1{font-family:'Inter',sans-serif;font-size:20px;font-weight:800;fill:#172033;letter-spacing:.06em;text-transform:uppercase;}
-  .hc-center-2{font-family:'Libre Baskerville',serif;font-size:16px;font-style:italic;fill:rgba(23,32,51,.62);}
-  .d-label{font-family:'Inter',sans-serif;font-size:19px;font-weight:600;fill:#172033;}
-  .d-sub{font-family:'Inter',sans-serif;font-size:15px;font-weight:600;fill:rgba(23,32,51,.55);letter-spacing:.06em;text-transform:uppercase;}
-  .d-strong{font-family:'Inter',sans-serif;font-size:21px;font-weight:800;fill:#172033;}
-  .quote-setup{margin-top:30px;font-size:19px;line-height:1.55;color:rgba(23,32,51,.62);max-width:840px;}
+  .hc-label{font-family:'Inter',sans-serif;font-size:16px;font-weight:600;fill:#172033;}
+  .hc-num{font-family:'Inter',sans-serif;font-size:16px;font-weight:800;fill:#C79A3B;letter-spacing:.08em;}
+  .hc-center-1{font-family:'Inter',sans-serif;font-size:16.5px;font-weight:800;fill:#172033;letter-spacing:.06em;text-transform:uppercase;}
+  .hc-center-2{font-family:'Libre Baskerville',serif;font-size:16px;font-style:italic;fill:rgba(23,32,51,.74);}
+  .d-label{font-family:'Inter',sans-serif;font-size:16px;font-weight:600;fill:#172033;}
+  .d-sub{font-family:'Inter',sans-serif;font-size:16px;font-weight:600;fill:rgba(23,32,51,.70);letter-spacing:.06em;text-transform:uppercase;}
+  .d-strong{font-family:'Inter',sans-serif;font-size:17px;font-weight:800;fill:#172033;}
+  .quote-setup{margin-top:30px;font-size:16px;line-height:1.55;color:rgba(23,32,51,.78);max-width:840px;}
 
   /* Theme list (slide 7) */
   .theme-row{
@@ -197,12 +181,12 @@
   }
   .theme-row:last-child{border-bottom:none;}
   .theme-num{
-    font-size:74px;font-weight:900;line-height:.9;
+    font-size:44px;font-weight:900;line-height:.9;
     color:rgba(199,154,59,.28);
     width:110px;flex:none;
   }
-  .theme-text h3{font-size:27px;font-weight:700;color:var(--ink);}
-  .theme-text p{margin-top:8px;font-size:20.5px;line-height:1.5;color:var(--body);}
+  .theme-text h3{font-size:16.5px;font-weight:700;color:var(--ink);}
+  .theme-text p{margin-top:8px;font-size:17px;line-height:1.5;color:var(--body);}
   .badge{
     display:inline-block;
     font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
@@ -214,26 +198,26 @@
 
   .theme-frame{
     font-family:'Libre Baskerville',serif;font-style:italic;
-    font-size:22px;line-height:1.5;color:var(--gold);
+    font-size:18px;line-height:1.5;color:var(--gold);
     margin:0 0 22px;max-width:840px;
   }
   .quoteblock{
     margin:36px 0 32px;
     font-family:'Libre Baskerville',serif;
     font-style:italic;
-    font-size:29px;line-height:1.62;color:var(--ink);
+    font-size:17px;line-height:1.62;color:var(--ink);
     max-width:850px;
   }
   .attrib{
     margin-top:18px;
     font-family:'Inter',sans-serif;font-style:normal;
     font-size:16px;font-weight:700;letter-spacing:.24em;
-    text-transform:uppercase;color:rgba(23,32,51,.5);
+    text-transform:uppercase;color:rgba(23,32,51,.62);
     font-variant:small-caps;
   }
   .essence{
     padding:6px 0 6px 30px;
-    font-size:23.5px;line-height:1.6;color:var(--ink);font-weight:500;
+    font-size:18px;line-height:1.6;color:var(--ink);font-weight:500;
   }
   .essence.teal{border-left:4px solid var(--teal);}
   .essence.gold{border-left:4px solid var(--gold);}
@@ -253,19 +237,19 @@
   }
   .qr-box.teal{border-color:var(--teal);color:var(--teal);}
   .qr-text .qr-h{font-size:17px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);}
-  .qr-text p{margin-top:8px;font-size:19px;line-height:1.5;color:var(--body);max-width:560px;}
+  .qr-text p{margin-top:8px;font-size:16.5px;line-height:1.52;color:var(--body);max-width:560px;}
 
   /* Limitations (slide 11) */
   .limit{
     padding:4px 0 4px 28px;border-left:3px solid var(--teal);
     margin-top:34px;
   }
-  .limit h4{font-size:24px;font-weight:700;color:var(--ink);}
-  .limit p{margin-top:8px;font-size:21px;line-height:1.55;color:var(--body);}
+  .limit h4{font-size:18px;font-weight:700;color:var(--ink);}
+  .limit p{margin-top:8px;font-size:17px;line-height:1.55;color:var(--body);}
   .closing-italic{
     margin-top:44px;
     font-family:'Libre Baskerville',serif;font-style:italic;
-    font-size:25px;line-height:1.6;color:var(--ink);
+    font-size:16px;line-height:1.6;color:var(--ink);
   }
 
   .imp-band{
@@ -276,19 +260,19 @@
   /* Implications grid (slide 12) */
   .imp-grid{display:grid;grid-template-columns:1fr 1fr;gap:38px 50px;margin-top:36px;}
   .imp{border-top:3px solid var(--gold);padding-top:20px;}
-  .imp h4{font-size:23px;font-weight:700;color:var(--ink);}
-  .imp p{margin-top:10px;font-size:19px;line-height:1.55;color:var(--body);}
+  .imp h4{font-size:18px;font-weight:700;color:var(--ink);}
+  .imp p{margin-top:10px;font-size:16px;line-height:1.55;color:var(--body);}
   .imp-close{
     margin-top:42px;
     padding:6px 0 6px 30px;border-left:4px solid var(--teal);
-    font-size:20px;line-height:1.6;color:var(--body);
+    font-size:16.5px;line-height:1.6;color:var(--body);
   }
   .imp-close strong{color:var(--ink);}
 
   .syn-epigraph{
     margin-top:22px;text-align:right;
     font-family:'Libre Baskerville',serif;font-style:italic;
-    font-size:18px;line-height:1.45;color:rgba(23,32,51,.5);
+    font-size:18px;line-height:1.45;color:rgba(23,32,51,.62);
   }
   /* ---------- LIMITATIONS LIST (slide 12) ---------- */
   .lim-list{margin-top:26px;}
@@ -296,33 +280,33 @@
   .lim-item:last-child{border-bottom:none;}
   .lim-item.key{border-left:3px solid var(--teal);padding-left:24px;}
   .lim-top{display:flex;align-items:center;gap:16px;margin-bottom:7px;}
-  .lim-top h4{font-size:23px;font-weight:700;color:var(--ink);}
-  .lim-item p{font-size:19px;line-height:1.5;color:var(--body);max-width:900px;}
+  .lim-top h4{font-size:18px;font-weight:700;color:var(--ink);}
+  .lim-item p{font-size:16.5px;line-height:1.52;color:var(--body);max-width:900px;}
   .lim-item.key p{max-width:880px;}
 
   /* ---------- SYNTHESIS (slide 11) ---------- */
-  .syn-intro{font-size:20px;line-height:1.55;color:var(--body);max-width:900px;margin-top:6px;}
+  .syn-intro{font-size:16.5px;line-height:1.55;color:var(--body);max-width:900px;margin-top:6px;}
   .syn-table{margin-top:22px;}
   .syn-head{
     display:grid;grid-template-columns:1fr 1fr;gap:48px;
     padding-bottom:10px;border-bottom:2px solid rgba(23,32,51,.25);
   }
   .syn-head .sh{font-size:15px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;}
-  .syn-head .sh.left{color:rgba(23,32,51,.5);}
+  .syn-head .sh.left{color:rgba(23,32,51,.62);}
   .syn-head .sh.right{color:var(--teal);}
   .syn-row{
     display:grid;grid-template-columns:1fr 1fr;gap:48px;
     padding:18px 0;border-bottom:1px solid rgba(23,32,51,.14);
   }
   .syn-row .name{font-size:16px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
-  .syn-cell{font-size:20px;line-height:1.45;}
+  .syn-cell{font-size:16.5px;line-height:1.45;}
   .syn-cell.left{color:rgba(23,32,51,.55);}
   .syn-cell.right{color:var(--ink);font-weight:500;}
   .syn-land{
     margin-top:26px;padding:4px 0 4px 30px;border-left:4px solid var(--gold);
   }
-  .syn-land .l1{font-family:'Libre Baskerville',serif;font-size:23px;line-height:1.5;color:var(--ink);}
-  .syn-land .l2{margin-top:12px;font-size:19px;line-height:1.5;color:var(--body);}
+  .syn-land .l1{font-family:'Libre Baskerville',serif;font-size:18px;line-height:1.5;color:var(--ink);}
+  .syn-land .l2{margin-top:12px;font-size:16.5px;line-height:1.52;color:var(--body);}
   .syn-land .l2 strong{color:var(--ink);}
 
 
@@ -348,7 +332,7 @@
   .cover{
     background:linear-gradient(152deg,var(--navy1) 0%,var(--navy2) 48%,var(--navy3) 100%);
     color:#fff;
-    padding:110px 96px 90px 110px;
+    padding:72px 56px 64px 60px;
     display:flex;flex-direction:column;
   }
   .cover::before{
@@ -368,7 +352,7 @@
     position:absolute;
   }
   .cover-mark span{
-    font-size:30px;font-weight:800;letter-spacing:.08em;color:var(--gold);
+    font-size:18px;font-weight:800;letter-spacing:.08em;color:var(--gold);
   }
   .cover-kicker{
     font-size:16px;font-weight:700;letter-spacing:.34em;
@@ -376,22 +360,22 @@
   }
   .cover h1{
     margin-top:48px;
-    font-size:104px;font-weight:900;line-height:1.02;
+    font-size:56px;font-weight:900;line-height:1.02;
     letter-spacing:-0.02em;color:#fff;max-width:820px;
   }
   .cover .subtitle{
     margin-top:42px;
     font-family:'Libre Baskerville',serif;font-style:italic;
-    font-size:29px;line-height:1.6;color:rgba(255,255,255,.78);
+    font-size:17px;line-height:1.6;color:rgba(255,255,255,.78);
     max-width:780px;
   }
   .cover .gold-divider{width:130px;height:3px;background:var(--gold);margin:54px 0 40px;border:none;}
-  .cover .author{font-size:30px;font-weight:700;color:#fff;}
-  .cover .inst{margin-top:12px;font-size:19px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:600;}
+  .cover .author{font-size:18px;font-weight:700;color:#fff;}
+  .cover .inst{margin-top:12px;font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:600;}
   .cover .epigraph{
     margin-top:auto;
     font-family:'Libre Baskerville',serif;font-style:italic;
-    font-size:23px;line-height:1.6;color:rgba(255,255,255,.66);
+    font-size:18px;line-height:1.6;color:rgba(255,255,255,.66);
     max-width:600px;
   }
   .cover-bottom{
@@ -410,7 +394,7 @@
   .close-row{display:grid;grid-template-columns:1.4fr 1fr;gap:44px;margin-top:auto;padding-top:36px;align-items:stretch;}
   .convo-card{border:1px solid rgba(23,32,51,.2);padding:32px 32px;}
   .convo-card .cc-label{font-size:15px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--teal);margin-bottom:16px;}
-  .convo-card p{font-size:20px;line-height:1.55;color:var(--body);}
+  .convo-card p{font-size:16.5px;line-height:1.55;color:var(--body);}
   .qr-final{
     border:2px dashed var(--teal);
     display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -421,18 +405,18 @@
 
   .big-close{
     margin-top:32px;
-    font-size:42px;font-weight:800;line-height:1.28;color:var(--ink);
+    font-size:17px;font-weight:800;line-height:1.28;color:var(--ink);
     letter-spacing:-0.01em;max-width:870px;
   }
   .theory-line{
     margin-top:30px;
-    font-size:22px;line-height:1.6;color:var(--ink);font-weight:500;
+    font-size:18px;line-height:1.6;color:var(--ink);font-weight:500;
     max-width:860px;
   }
   .theory-names{
     margin-top:22px;
     padding:6px 0 6px 30px;border-left:4px solid var(--gold);
-    font-size:20px;line-height:1.62;color:var(--body);
+    font-size:16.5px;line-height:1.62;color:var(--body);
     max-width:860px;
   }
   .theory-names strong{color:var(--ink);}
@@ -447,7 +431,7 @@
     width:54px;height:54px;border-radius:50%;
     border:1px solid rgba(255,255,255,.3);
     background:rgba(255,255,255,.06);
-    color:#fff;font-size:22px;cursor:pointer;
+    color:#fff;font-size:18px;cursor:pointer;
     display:flex;align-items:center;justify-content:center;
     transition:all .2s ease;
   }
@@ -470,15 +454,36 @@
     .slide{transition:none;}
     .dot{transition:none;}
   }
+
+  html{scroll-behavior:smooth;}
+  #r3,#r8,#r10,#r14{scroll-margin-top:24px;}
+  .slide[id]{scroll-margin-top:24px;}
+  /* audio players: in scroll layout they don't need margin-top:auto */
+  .audio-player{margin-top:34px;padding-top:26px;border-top:1px solid rgba(23,32,51,.14);}
+  .qr-strip, .metrics, .pullquote.teal[style], .method-block .pullquote{margin-top:34px !important;}
+  /* remove forced auto-push that assumed fixed height */
+  .slide-body{display:block;}
+  .footer{margin-top:32px;}
+  .close-row{margin-top:34px;}
+  /* header/intro band above the scroll */
+  .brief-head{max-width:820px;margin:0 auto;padding:48px 24px 18px;color:#EDEEF2;}
+  .brief-head .bh-title{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);}
+  .brief-head .bh-sub{margin-top:10px;font-size:15px;line-height:1.55;color:rgba(237,238,242,.6);}
+  @media (max-width:680px){
+    .interior{padding:40px 26px 34px 30px;}
+    .cover{padding:52px 26px 44px 30px;}
+    .scroll-wrap{padding:0 12px 60px;}
+    .brief-head{padding:32px 20px 14px;}
+  }
 </style>
 </head>
 <body>
-
-<div class="stage-wrap">
-<div class="stage" id="stage">
-
-<!-- ================= SLIDE 1 : COVER ================= -->
-<section class="slide cover active" data-slide="1">
+<div class="brief-head">
+  <div class="bh-title">Beyond Measurable Success</div>
+  <div class="bh-sub">An interactive dissertation brief designed to be read, seen, and heard. Scroll to read the research; four reflections in Dr. Hudson's own voice are embedded throughout.</div>
+</div>
+<div class="scroll-wrap">
+<section class="slide cover" data-slide="1" id="slide-1">
   <div class="cover-mark"><span>RH</span></div>
   <div class="cover-kicker">A Dissertation Brief</div>
   <h1>Beyond Measurable Success</h1>
@@ -495,8 +500,7 @@
   </div>
 </section>
 
-<!-- ================= SLIDE 2 : WHY THIS STUDY MATTERS ================= -->
-<section class="slide interior" data-slide="2">
+<section class="slide interior" data-slide="2" id="slide-2">
   <div class="author-line">Dr. Robert L. Hudson</div>
   <div class="kicker">Why This Study Matters</div>
   <div class="slide-body">
@@ -515,8 +519,7 @@
   <div class="footer"><span>Beyond Measurable Success</span><span class="num">02 / 14</span></div>
 </section>
 
-<!-- ================= SLIDE 3 : POSITIONALITY ================= -->
-<section class="slide interior" data-slide="3">
+<section class="slide interior" data-slide="3" id="slide-3">
   <div class="author-line">Dr. Robert L. Hudson</div>
   <div class="kicker">Positionality</div>
   <div class="slide-body">
@@ -542,8 +545,7 @@
   <div class="footer"><span>Beyond Measurable Success</span><span class="num">03 / 14</span></div>
 </section>
 
-<!-- ================= SLIDE 4 : PROBLEM & PURPOSE ================= -->
-<section class="slide interior" data-slide="4">
+<section class="slide interior" data-slide="4" id="slide-4">
   <div class="author-line">Dr. Robert L. Hudson</div>
   <div class="kicker">Problem and Purpose</div>
   <div class="slide-body">
@@ -568,8 +570,7 @@
   <div class="footer"><span>Beyond Measurable Success</span><span class="num">04 / 14</span></div>
 </section>
 
-<!-- ================= SLIDE 5 : PHENOMENOLOGY + HERMENEUTIC CIRCLE ================= -->
-<section class="slide interior" data-slide="5">
+<section class="slide interior" data-slide="5" id="slide-5">
   <div class="author-line">Dr. Robert L. Hudson</div>
   <div class="kicker">Methodology &middot; Strand One</div>
   <div class="slide-body">
@@ -621,8 +622,7 @@
   <div class="footer"><span>Beyond Measurable Success</span><span class="num">05 / 14</span></div>
 </section>
 
-<!-- ================= SLIDE 6 : AUTOETHNOGRAPHY ================= -->
-<section class="slide interior teal-bar" data-slide="6">
+<section class="slide interior teal-bar" data-slide="6" id="slide-6">
   <div class="author-line">Dr. Robert L. Hudson</div>
   <div class="kicker">Methodology &middot; Strand Two</div>
   <div class="slide-body">
@@ -666,8 +666,7 @@
   <div class="footer"><span>Beyond Measurable Success</span><span class="num">06 / 14</span></div>
 </section>
 
-<!-- ================= SLIDE 7 : FIVE THEMES ================= -->
-<section class="slide interior" data-slide="7">
+<section class="slide interior" data-slide="7" id="slide-7">
   <div class="author-line">Dr. Robert L. Hudson</div>
   <div class="kicker">Findings</div>
   <div class="slide-body">
@@ -717,8 +716,7 @@
   <div class="footer"><span>Beyond Measurable Success</span><span class="num">07 / 14</span></div>
 </section>
 
-<!-- ================= SLIDE 8 : THEME 2 FEATURED ================= -->
-<section class="slide interior" data-slide="8">
+<section class="slide interior" data-slide="8" id="slide-8">
   <div class="author-line">Dr. Robert L. Hudson</div>
   <div class="kicker">Finding &middot; Theme Two</div>
   <div class="slide-body">
@@ -741,8 +739,7 @@
   <div class="footer"><span>Beyond Measurable Success</span><span class="num">08 / 14</span></div>
 </section>
 
-<!-- ================= SLIDE 9 : THEME 3 FEATURED ================= -->
-<section class="slide interior" data-slide="9">
+<section class="slide interior" data-slide="9" id="slide-9">
   <div class="author-line">Dr. Robert L. Hudson</div>
   <div class="kicker">Finding &middot; Theme Three</div>
   <div class="slide-body">
@@ -759,8 +756,7 @@
   <div class="footer"><span>Beyond Measurable Success</span><span class="num">09 / 14</span></div>
 </section>
 
-<!-- ================= SLIDE 10 : THEME 5 FEATURED ================= -->
-<section class="slide interior" data-slide="10">
+<section class="slide interior" data-slide="10" id="slide-10">
   <div class="author-line">Dr. Robert L. Hudson</div>
   <div class="kicker">Finding &middot; Theme Five</div>
   <div class="slide-body">
@@ -782,8 +778,7 @@
   <div class="footer"><span>Beyond Measurable Success</span><span class="num">10 / 14</span></div>
 </section>
 
-<!-- ================= SLIDE 11 : SYNTHESIS (BEYOND MEASURABLE SUCCESS) ================= -->
-<section class="slide interior" data-slide="11">
+<section class="slide interior" data-slide="11" id="slide-11">
   <div class="author-line">Dr. Robert L. Hudson</div>
   <div class="kicker">The Argument</div>
   <div class="slide-body">
@@ -827,8 +822,7 @@
   <div class="footer"><span>Beyond Measurable Success</span><span class="num">11 / 14</span></div>
 </section>
 
-<!-- ================= SLIDE 12 : LIMITATIONS ================= -->
-<section class="slide interior" data-slide="12">
+<section class="slide interior" data-slide="12" id="slide-12">
   <div class="author-line">Dr. Robert L. Hudson</div>
   <div class="kicker">Research Limitations</div>
   <div class="slide-body">
@@ -861,8 +855,7 @@
   <div class="footer"><span>Beyond Measurable Success</span><span class="num">12 / 14</span></div>
 </section>
 
-<!-- ================= SLIDE 13 : SO NOW WHAT ================= -->
-<section class="slide interior" data-slide="13">
+<section class="slide interior" data-slide="13" id="slide-13">
   <div class="author-line">Dr. Robert L. Hudson</div>
   <div class="kicker">So Now What?</div>
   <div class="slide-body">
@@ -893,8 +886,7 @@
   <div class="footer"><span>Beyond Measurable Success</span><span class="num">13 / 14</span></div>
 </section>
 
-<!-- ================= SLIDE 14 : CLOSING ================= -->
-<section class="slide interior" data-slide="14">
+<section class="slide interior" data-slide="14" id="slide-14">
   <div class="author-line">Dr. Robert L. Hudson</div>
   <div class="kicker">What I Learned</div>
   <div class="slide-body">
@@ -917,83 +909,6 @@
   </div>
   <div class="footer"><span>Beyond Measurable Success</span><span class="num">14 / 14</span></div>
 </section>
-
-</div><!-- /stage -->
-</div><!-- /stage-wrap -->
-
-<!-- ================= NAVIGATION ================= -->
-<div class="nav-row">
-  <button class="nav-btn" id="prevBtn" aria-label="Previous slide">&#8592;</button>
-  <div class="dots" id="dots" role="tablist" aria-label="Slide navigation"></div>
-  <button class="nav-btn" id="nextBtn" aria-label="Next slide">&#8594;</button>
-  <div class="counter" id="counter">01 / 14</div>
 </div>
-
-<script>
-(function(){
-  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
-  var total = slides.length;
-  var current = 0;
-  var dotsWrap = document.getElementById('dots');
-  var counter = document.getElementById('counter');
-  var prevBtn = document.getElementById('prevBtn');
-  var nextBtn = document.getElementById('nextBtn');
-  var stage = document.getElementById('stage');
-  var stageWrap = document.querySelector('.stage-wrap');
-
-  slides.forEach(function(_, i){
-    var d = document.createElement('button');
-    d.className = 'dot' + (i === 0 ? ' active' : '');
-    d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-    d.addEventListener('click', function(){ go(i); });
-    dotsWrap.appendChild(d);
-  });
-  var dots = Array.prototype.slice.call(dotsWrap.children);
-
-  function pad(n){ return n < 10 ? '0' + n : '' + n; }
-
-  function go(i){
-    if(i < 0) i = 0;
-    if(i > total - 1) i = total - 1;
-    slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
-    current = i;
-    slides[current].classList.add('active');
-    dots[current].classList.add('active');
-    counter.textContent = pad(current + 1) + ' / ' + pad(total);
-  }
-
-  prevBtn.addEventListener('click', function(){ go(current - 1); });
-  nextBtn.addEventListener('click', function(){ go(current + 1); });
-
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'ArrowLeft'){ go(current - 1); }
-    if(e.key === 'ArrowRight'){ go(current + 1); }
-  });
-
-  function fit(){
-    var availW = stageWrap.clientWidth;
-    var availH = window.innerHeight - 160;
-    var scale = Math.min(availW / 1080, availH / 1350, 1);
-    stage.style.transform = 'scale(' + scale + ')';
-    stage.style.marginBottom = (-(1 - scale) * 1350) + 'px';
-    stage.style.marginLeft = 'auto';
-    stage.style.marginRight = 'auto';
-  }
-  window.addEventListener('resize', fit);
-  fit();
-
-  // Anchor navigation: QR codes point to #r3, #r8, #r10, #r14
-  var anchorMap = { r3:2, r8:7, r10:9, r14:13 };
-  function goToHash(){
-    var h = (window.location.hash || '').replace('#','');
-    if(anchorMap.hasOwnProperty(h)){
-      go(anchorMap[h]);
-    }
-  }
-  window.addEventListener('hashchange', goToHash);
-  goToHash();
-})();
-</script>
 </body>
 </html>
