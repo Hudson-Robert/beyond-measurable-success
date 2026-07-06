@@ -1,5 +1,14 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8">
+<html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6SRX027EWY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6SRX027EWY');
+</script>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Closing Reflection | Beyond Measurable Success</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -113,4 +122,23 @@ body{
   <div class="nav"><a href="reflection-r10.html">&larr; Previous reflection</a><a class="disabled">Next &rarr;</a></div>
   <div class="alllink"><a href="listen.html">Hear all four reflections &rarr;</a></div>
   <div class="footer">Dr. Robert L. Hudson &middot; Beyond Measurable Success</div>
-</div></div></body></html>
+</div></div><script>
+  // Track audio plays as GA events (fires once per audio element per page load)
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('audio').forEach(function (a) {
+      var fired = false;
+      a.addEventListener('play', function () {
+        if (fired) return;
+        fired = true;
+        var label = (a.getAttribute('src') || 'unknown').split('/').pop();
+        if (typeof gtag === 'function') {
+          gtag('event', 'audio_play', {
+            'event_category': 'reflection_audio',
+            'event_label': label
+          });
+        }
+      });
+    });
+  });
+</script>
+</body></html>
